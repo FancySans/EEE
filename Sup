@@ -1,25 +1,22 @@
 if game.PlaceId == 13253735473 then
-    local Local_Plr = game:GetService("Players").LocalPlayer
-    local Plr_Gui = Local_Plr:FindFirstChild("PlayerGui")
-    if Plr_Gui:FindFirstChildOfClass("Actor") then
-        print("Failed")
-    else
-        Plr_Gui.ChildAdded:Connect(function(v)
-            if v.ClassName == "Actor" then
-                if Plr_Gui[v.Name]:FindFirstChild("GameClient") then
-                    Plr_Gui[v.Name].GameClient.Parent = Plr_Gui
-                    task.wait()
-                    v:Destroy()
-                    warn("actors bypassed ez")
-                end
-            end
-        end)
-    end
+  local Local_Plr = game:GetService("Players").LocalPlayer
+  local Plr_Gui = Local_Plr:FindFirstChild("PlayerGui")
+  if Plr_Gui:FindFirstChildOfClass("Actor") then
+      print("Failed")
+  else
+      Plr_Gui.ChildAdded:Connect(function(v)
+          if v.ClassName == "Actor" then
+              if Plr_Gui[v.Name]:FindFirstChild("GameClient") then
+                  Plr_Gui[v.Name].GameClient.Parent = Plr_Gui
+                  task.wait()
+                  v:Destroy()
+                  warn("actors bypassed ez")
+              end
+          end
+      end)
+  end
 end
 
-wait(.3)
-wait(.3)
-wait(.3)
 wait(.3)
 wait(.3)
 
@@ -36,23 +33,23 @@ local Decimals = 2
 local Clock = os.clock()
 
 if not LPH_OBFUSCATED then
-  LPH_JIT = function(...) return ... end
-  LPH_JIT_MAX = function(...) return ... end
-  LPH_JIT_ULTRA = function(...) return ... end
-  LPH_NO_VIRTUALIZE = function(...) return ... end
-  LPH_NO_UPVALUES = function(f) return(function(...) return f(...) end) end
-  LPH_ENCSTR = function(...) return ... end
-  LPH_STRENC = function(...) return ... end
-  LPH_HOOK_FIX = function(...) return ... end
-  LPH_CRASH = function() return print(debug.traceback()) end
+LPH_JIT = function(...) return ... end
+LPH_JIT_MAX = function(...) return ... end
+LPH_JIT_ULTRA = function(...) return ... end
+LPH_NO_VIRTUALIZE = function(...) return ... end
+LPH_NO_UPVALUES = function(f) return(function(...) return f(...) end) end
+LPH_ENCSTR = function(...) return ... end
+LPH_STRENC = function(...) return ... end
+LPH_HOOK_FIX = function(...) return ... end
+LPH_CRASH = function() return print(debug.traceback()) end
 end
 
 function LPH_JIT_ULTRA(f)
-  return f
-  end
-  function LPH_JIT_MAX(f)
-  return f
-  end
+return f
+end
+function LPH_JIT_MAX(f)
+return f
+end
 
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/BigHacker123/Library.lua/main/Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet('https://raw.githubusercontent.com/BigHacker123/Library.lua/main/Theme.lua'))()
@@ -84,162 +81,162 @@ local CharcaterMiddle = game:GetService("Workspace").Ignore.LocalCharacter.Middl
 
 --Functions
 function Functions:IsSleeping(Model)
-  if Model and Model:FindFirstChild("AnimationController") and Model.AnimationController:FindFirstChild("Animator") then
-      for i,v in pairs(Model.AnimationController.Animator:GetPlayingAnimationTracks()) do
-          if v.Animation.AnimationId == "rbxassetid://13280887764" then
-              return true
-          else
-              return false
-          end
-      end
-  end
+if Model and Model:FindFirstChild("AnimationController") and Model.AnimationController:FindFirstChild("Animator") then
+    for i,v in pairs(Model.AnimationController.Animator:GetPlayingAnimationTracks()) do
+        if v.Animation.AnimationId == "rbxassetid://13280887764" then
+            return true
+        else
+            return false
+        end
+    end
+end
 end
 function Functions:Draw(Type,Propities)
-  if not Type and not Propities then return end
-  local drawing = Drawing.new(Type)
-  for i,v in pairs(Propities) do
-      drawing[i] = v
-  end
-  table.insert(Esp.Drawings,drawing)
-  return drawing
+if not Type and not Propities then return end
+local drawing = Drawing.new(Type)
+for i,v in pairs(Propities) do
+    drawing[i] = v
+end
+table.insert(Esp.Drawings,drawing)
+return drawing
 end
 function Esp:CreateEsp(PlayerTable)
-  if not PlayerTable then return end
-  local drawings = {}
-  drawings.BoxOutline = Functions:Draw("Square",{Thickness=2,Filled=false,Transparency=1,Color=Esp.Settings.BoxesOutlineColor,Visible=false,ZIndex = -1,Visible=false});
-  drawings.Box = Functions:Draw("Square",{Thickness=1,Filled=false,Transparency=1,Color=Esp.Settings.BoxesColor,Visible=false,ZIndex = 2,Visible=false});
-  drawings.Sleeping = Functions:Draw("Text",{Text = "Nil",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=true,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.SleepingColor,ZIndex = 2,Visible=false})
-  drawings.Distance = Functions:Draw("Text",{Text = "Nil",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=true,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.SleepingColor,ZIndex = 2,Visible=false})
-  drawings.Armour = Functions:Draw("Text",{Text = "Naked",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=false,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.ArmourColor,ZIndex = 2,Visible=false})
-  drawings.ViewAngle = Functions:Draw("Line",{Thickness=Esp.Settings.ViewAngleThickness,Transparency=Esp.Settings.ViewAngleTransparrency,Color=Esp.Settings.ViewAngleColor,ZIndex=2,Visible=false})
-  drawings.PlayerTable = PlayerTable
-  Esp.Players[PlayerTable.model] = drawings
+if not PlayerTable then return end
+local drawings = {}
+drawings.BoxOutline = Functions:Draw("Square",{Thickness=2,Filled=false,Transparency=1,Color=Esp.Settings.BoxesOutlineColor,Visible=false,ZIndex = -1,Visible=false});
+drawings.Box = Functions:Draw("Square",{Thickness=1,Filled=false,Transparency=1,Color=Esp.Settings.BoxesColor,Visible=false,ZIndex = 2,Visible=false});
+drawings.Sleeping = Functions:Draw("Text",{Text = "Nil",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=true,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.SleepingColor,ZIndex = 2,Visible=false})
+drawings.Distance = Functions:Draw("Text",{Text = "Nil",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=true,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.SleepingColor,ZIndex = 2,Visible=false})
+drawings.Armour = Functions:Draw("Text",{Text = "Naked",Font=Esp.Settings.TextFont,Size=Esp.Settings.TextSize,Center=false,Outline=Esp.Settings.TextOutline,Color = Esp.Settings.ArmourColor,ZIndex = 2,Visible=false})
+drawings.ViewAngle = Functions:Draw("Line",{Thickness=Esp.Settings.ViewAngleThickness,Transparency=Esp.Settings.ViewAngleTransparrency,Color=Esp.Settings.ViewAngleColor,ZIndex=2,Visible=false})
+drawings.PlayerTable = PlayerTable
+Esp.Players[PlayerTable.model] = drawings
 end
 function Esp:RemoveEsp(PlayerTable)
-  if not PlayerTable and PlayerTable.model ~= nil then return end
-  esp = Esp.Players[PlayerTable.model];
-  if not esp then return end
-  for i, v in pairs(esp) do
-      if not type(v) == "table" then
-          v:Remove();
-      end
-  end
-  Esp.Players[PlayerTable.model] = nil;
+if not PlayerTable and PlayerTable.model ~= nil then return end
+esp = Esp.Players[PlayerTable.model];
+if not esp then return end
+for i, v in pairs(esp) do
+    if not type(v) == "table" then
+        v:Remove();
+    end
+end
+Esp.Players[PlayerTable.model] = nil;
 end
 
 function Esp:UpdateEsp()
-  for i,v in pairs(Esp.Players) do
-      local Character = i
-      local Position,OnScreen = Camera:WorldToViewportPoint(Character:GetPivot().Position);
-      local scale = 1 / (Position.Z * math.tan(math.rad(Camera.FieldOfView * 0.5)) * 2) * 100;
-      local w,h = math.floor(40 * scale), math.floor(55 * scale);
-      local x,y = math.floor(Position.X), math.floor(Position.Y);
-      local Distance = (CharcaterMiddle:GetPivot().Position-Character:GetPivot().Position).Magnitude
-      local BoxPosX,BoxPosY = math.floor(x - w * 0.5),math.floor(y - h * 0.5)
-      local offsetCFrame = CFrame.new(0, 0, -4)
-      local sleeping = Functions:IsSleeping(Character)
-      if Character and Character:FindFirstChild("HumanoidRootPart") and Character:FindFirstChild("Head") then
-          local TeamTag = Character.Head.Teamtag.Enabled
-          if OnScreen == true and Esp.Settings.Boxes == true and Distance <= Esp.Settings.RenderDistance then
-              if Esp.Settings.TeamCheck == true and TeamTag == false then 
-                  v.BoxOutline.Visible = Esp.Settings.BoxesOutline;v.Box.Visible = true
-              elseif Esp.Settings.TeamCheck == true and TeamTag == true then
-                  v.BoxOutline.Visible = false;v.Box.Visible = false
-              else
-                  v.BoxOutline.Visible = Esp.Settings.BoxesOutline;v.Box.Visible = true
-              end
-              if Esp.Settings.TargetSleepers == true and sleeping == true then
-                  v.BoxOutline.Visible = false;v.Box.Visible = false
-              end
-              v.BoxOutline.Position = Vector2.new(BoxPosX,BoxPosY);v.BoxOutline.Size = Vector2.new(w,h)
-              v.Box.Position = Vector2.new(BoxPosX,BoxPosY);v.Box.Size = Vector2.new(w,h)
-              v.Box.Color = Esp.Settings.BoxesColor;v.BoxOutline.Color = Esp.Settings.BoxesOutlineColor
-          else
-              v.BoxOutline.Visible = false;v.Box.Visible = false
-          end
-          if OnScreen == true and Esp.Settings.Sleeping == true and Distance <= Esp.Settings.RenderDistance then
-              if sleeping == true then v.Sleeping.Text = "Sleeping" else v.Sleeping.Text = "Awake" end
-              if Esp.Settings.TeamCheck == true and TeamTag == false then
-                  v.Sleeping.Visible = true
-              elseif Esp.Settings.TeamCheck == true and TeamTag == true then
-                  v.Sleeping.Visible = false
-              end
-              if Esp.Settings.TargetSleepers == true and sleeping == true then v.Sleeping.Visible = false end
+for i,v in pairs(Esp.Players) do
+    local Character = i
+    local Position,OnScreen = Camera:WorldToViewportPoint(Character:GetPivot().Position);
+    local scale = 1 / (Position.Z * math.tan(math.rad(Camera.FieldOfView * 0.5)) * 2) * 100;
+    local w,h = math.floor(40 * scale), math.floor(55 * scale);
+    local x,y = math.floor(Position.X), math.floor(Position.Y);
+    local Distance = (CharcaterMiddle:GetPivot().Position-Character:GetPivot().Position).Magnitude
+    local BoxPosX,BoxPosY = math.floor(x - w * 0.5),math.floor(y - h * 0.5)
+    local offsetCFrame = CFrame.new(0, 0, -4)
+    local sleeping = Functions:IsSleeping(Character)
+    if Character and Character:FindFirstChild("HumanoidRootPart") and Character:FindFirstChild("Head") then
+        local TeamTag = Character.Head.Teamtag.Enabled
+        if OnScreen == true and Esp.Settings.Boxes == true and Distance <= Esp.Settings.RenderDistance then
+            if Esp.Settings.TeamCheck == true and TeamTag == false then 
+                v.BoxOutline.Visible = Esp.Settings.BoxesOutline;v.Box.Visible = true
+            elseif Esp.Settings.TeamCheck == true and TeamTag == true then
+                v.BoxOutline.Visible = false;v.Box.Visible = false
+            else
+                v.BoxOutline.Visible = Esp.Settings.BoxesOutline;v.Box.Visible = true
+            end
+            if Esp.Settings.TargetSleepers == true and sleeping == true then
+                v.BoxOutline.Visible = false;v.Box.Visible = false
+            end
+            v.BoxOutline.Position = Vector2.new(BoxPosX,BoxPosY);v.BoxOutline.Size = Vector2.new(w,h)
+            v.Box.Position = Vector2.new(BoxPosX,BoxPosY);v.Box.Size = Vector2.new(w,h)
+            v.Box.Color = Esp.Settings.BoxesColor;v.BoxOutline.Color = Esp.Settings.BoxesOutlineColor
+        else
+            v.BoxOutline.Visible = false;v.Box.Visible = false
+        end
+        if OnScreen == true and Esp.Settings.Sleeping == true and Distance <= Esp.Settings.RenderDistance then
+            if sleeping == true then v.Sleeping.Text = "Sleeping" else v.Sleeping.Text = "Awake" end
+            if Esp.Settings.TeamCheck == true and TeamTag == false then
+                v.Sleeping.Visible = true
+            elseif Esp.Settings.TeamCheck == true and TeamTag == true then
+                v.Sleeping.Visible = false
+            end
+            if Esp.Settings.TargetSleepers == true and sleeping == true then v.Sleeping.Visible = false end
 
-              v.Sleeping.Outline=Esp.Settings.TextOutline;v.Sleeping.Color=Esp.Settings.SleepingColor;v.Sleeping.Size=math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);v.Sleeping.Color = Esp.Settings.SleepingColor;v.Sleeping.Font=Esp.Settings.TextFont;v.Sleeping.Position = Vector2.new(x,math.floor(y-h*0.5-v.Sleeping.TextBounds.Y))
-          else
-              v.Sleeping.Visible=false
-          end
-          if OnScreen == true and Esp.Settings.Distances == true and Distance <= Esp.Settings.RenderDistance then
-              if Esp.Settings.TeamCheck == true and TeamTag == false then
-                  v.Distance.Visible = true
-              elseif Esp.Settings.TeamCheck == true and TeamTag == true then
-                  v.Distance.Visible = false
-              end
-              if Esp.Settings.TargetSleepers == true and sleeping == true then v.Distance.Visible = false end
+            v.Sleeping.Outline=Esp.Settings.TextOutline;v.Sleeping.Color=Esp.Settings.SleepingColor;v.Sleeping.Size=math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);v.Sleeping.Color = Esp.Settings.SleepingColor;v.Sleeping.Font=Esp.Settings.TextFont;v.Sleeping.Position = Vector2.new(x,math.floor(y-h*0.5-v.Sleeping.TextBounds.Y))
+        else
+            v.Sleeping.Visible=false
+        end
+        if OnScreen == true and Esp.Settings.Distances == true and Distance <= Esp.Settings.RenderDistance then
+            if Esp.Settings.TeamCheck == true and TeamTag == false then
+                v.Distance.Visible = true
+            elseif Esp.Settings.TeamCheck == true and TeamTag == true then
+                v.Distance.Visible = false
+            end
+            if Esp.Settings.TargetSleepers == true and sleeping == true then v.Distance.Visible = false end
 
-              if Esp.Settings.Sleeping == false then
-                  v.Distance.Text = math.floor(Distance).."s"
-              else
-                  v.Distance.Text = math.floor(Distance).."s"
-              end
-              v.Distance.Outline=Esp.Settings.TextOutline;v.Distance.Color=Esp.Settings.SleepingColor;v.Distance.Size=math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);v.Distance.Color = Esp.Settings.DistanceColor;v.Distance.Font=Esp.Settings.TextFont;v.Distance.Position = Vector2.new(x,math.floor(y+h*.5))
-          else
-              v.Distance.Visible = false
-          end
-          if OnScreen == true and Esp.Settings.Armour == true and Distance <= Esp.Settings.RenderDistance then
-              if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "Armoured" else v.Armour.Text = "Naked" end
-              if Esp.Settings.TeamCheck == true and TeamTag == false then v.Armour.Visible = true elseif Esp.Settings.TeamCheck == true and TeamTag == true then v.Armour.Visible = false else v.Armour.Visible = true end
-              if Esp.Settings.TargetSleepers == true and sleeping == true then v.Armour.Visible = false end
-              v.Armour.Outline=Esp.Settings.TextOutline;v.Armour.Size = math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);
-              v.Armour.Position=Vector2.new(math.floor((BoxPosX+w)+v.Armour.TextBounds.X/10),BoxPosY+v.Armour.TextBounds.Y*1.55*0.5-((v.Armour.TextBounds.Y*2)*0.5));
-              v.Armour.Color = Esp.Settings.ArmourColor;v.Armour.Font=Esp.Settings.TextFont
-          else
-              v.Armour.Visible = false
-          end
-          if OnScreen == true and Esp.Settings.ViewAngle == true and Distance <= Esp.Settings.RenderDistance then
-              if Esp.Settings.TeamCheck == true and TeamTag == false then v.ViewAngle.Visible = true elseif Esp.Settings.TeamCheck == true and TeamTag == true then v.ViewAngle.Visible = false else v.ViewAngle.Visible = true end
-              if Esp.Settings.TargetSleepers == true and sleeping == true then v.ViewAngle.Visible = false end
-              v.ViewAngle.Color = Esp.Settings.ViewAngleColor;v.ViewAngle.Thickness=Esp.Settings.ViewAngleThickness;v.Transparency=Esp.Settings.ViewAngleTransparrency;
-              local headpos = Camera:WorldToViewportPoint(Character.Head.Position)
-              local offsetCFrame = CFrame.new(0, 0, -4)
-              v.ViewAngle.From = Vector2.new(headpos.X, headpos.Y)
-              local value = math.clamp(1/Distance*100, 0.1, 1)
-              local dir = Character.Head.CFrame:ToWorldSpace(offsetCFrame)
-              offsetCFrame = offsetCFrame * CFrame.new(0, 0, 0.4)
-              local dirpos = Camera:WorldToViewportPoint(Vector3.new(dir.X, dir.Y, dir.Z))
-              if OnScreen == true then
-                  v.ViewAngle.To = Vector2.new(dirpos.X, dirpos.Y)
-                  offsetCFrame = CFrame.new(0, 0, -4)
-              end
-          else
-              v.ViewAngle.Visible = false
-          end
-      else
-          v.Box.Visible=false;v.BoxOutline.Visible=false;v.Armour.Visible=false;v.Distance.Visible=false;v.ViewAngle.Visible=false;v.Sleeping.Visible=false;
-      end
-  end
+            if Esp.Settings.Sleeping == false then
+                v.Distance.Text = math.floor(Distance).."s"
+            else
+                v.Distance.Text = math.floor(Distance).."s"
+            end
+            v.Distance.Outline=Esp.Settings.TextOutline;v.Distance.Color=Esp.Settings.SleepingColor;v.Distance.Size=math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);v.Distance.Color = Esp.Settings.DistanceColor;v.Distance.Font=Esp.Settings.TextFont;v.Distance.Position = Vector2.new(x,math.floor(y+h*.5))
+        else
+            v.Distance.Visible = false
+        end
+        if OnScreen == true and Esp.Settings.Armour == true and Distance <= Esp.Settings.RenderDistance then
+            if Character.Armor:FindFirstChildOfClass("Folder") then v.Armour.Text = "Armoured" else v.Armour.Text = "Naked" end
+            if Esp.Settings.TeamCheck == true and TeamTag == false then v.Armour.Visible = true elseif Esp.Settings.TeamCheck == true and TeamTag == true then v.Armour.Visible = false else v.Armour.Visible = true end
+            if Esp.Settings.TargetSleepers == true and sleeping == true then v.Armour.Visible = false end
+            v.Armour.Outline=Esp.Settings.TextOutline;v.Armour.Size = math.max(math.min(math.abs(Esp.Settings.TextSize*scale),Esp.Settings.TextSize),Esp.Settings.MinTextSize);
+            v.Armour.Position=Vector2.new(math.floor((BoxPosX+w)+v.Armour.TextBounds.X/10),BoxPosY+v.Armour.TextBounds.Y*1.55*0.5-((v.Armour.TextBounds.Y*2)*0.5));
+            v.Armour.Color = Esp.Settings.ArmourColor;v.Armour.Font=Esp.Settings.TextFont
+        else
+            v.Armour.Visible = false
+        end
+        if OnScreen == true and Esp.Settings.ViewAngle == true and Distance <= Esp.Settings.RenderDistance then
+            if Esp.Settings.TeamCheck == true and TeamTag == false then v.ViewAngle.Visible = true elseif Esp.Settings.TeamCheck == true and TeamTag == true then v.ViewAngle.Visible = false else v.ViewAngle.Visible = true end
+            if Esp.Settings.TargetSleepers == true and sleeping == true then v.ViewAngle.Visible = false end
+            v.ViewAngle.Color = Esp.Settings.ViewAngleColor;v.ViewAngle.Thickness=Esp.Settings.ViewAngleThickness;v.Transparency=Esp.Settings.ViewAngleTransparrency;
+            local headpos = Camera:WorldToViewportPoint(Character.Head.Position)
+            local offsetCFrame = CFrame.new(0, 0, -4)
+            v.ViewAngle.From = Vector2.new(headpos.X, headpos.Y)
+            local value = math.clamp(1/Distance*100, 0.1, 1)
+            local dir = Character.Head.CFrame:ToWorldSpace(offsetCFrame)
+            offsetCFrame = offsetCFrame * CFrame.new(0, 0, 0.4)
+            local dirpos = Camera:WorldToViewportPoint(Vector3.new(dir.X, dir.Y, dir.Z))
+            if OnScreen == true then
+                v.ViewAngle.To = Vector2.new(dirpos.X, dirpos.Y)
+                offsetCFrame = CFrame.new(0, 0, -4)
+            end
+        else
+            v.ViewAngle.Visible = false
+        end
+    else
+        v.Box.Visible=false;v.BoxOutline.Visible=false;v.Armour.Visible=false;v.Distance.Visible=false;v.ViewAngle.Visible=false;v.Sleeping.Visible=false;
+    end
+end
 end
 
 --Connections
 local PlayerUpdater = game:GetService("RunService").RenderStepped
 local PlayerConnection = PlayerUpdater:Connect(function()
-  Esp:UpdateEsp()
+Esp:UpdateEsp()
 end)
 
 --Init Functions
 for i,v in pairs(workspace:GetChildren()) do
-  if v:FindFirstChild("HumanoidRootPart") then
-      table.insert(cache,v)
-      Esp:CreateEsp({model=v})
-  end
+if v:FindFirstChild("HumanoidRootPart") then
+    table.insert(cache,v)
+    Esp:CreateEsp({model=v})
+end
 end
 
 game:GetService("Workspace").ChildAdded:Connect(function(child)
-  if child:FindFirstChild("HumanoidRootPart") and not table.find(cache,child) then
-      table.insert(cache,child)
-      Esp:CreateEsp({model=child})
-  end
+if child:FindFirstChild("HumanoidRootPart") and not table.find(cache,child) then
+    table.insert(cache,child)
+    Esp:CreateEsp({model=child})
+end
 end)
 
 local PlayerVisualTabbox = Tabs.Visual:AddLeftTabbox()
@@ -254,58 +251,58 @@ PlayerVisualTab:AddToggle('ViewAngle',{Text='View Angle',Default=false}):AddColo
 
 --Esp Switches
 Toggles.ViewAngle:OnChanged(function(Value)
-  Esp.Settings.ViewAngle = Value
+Esp.Settings.ViewAngle = Value
 end)
 Options.ViewAngleColor:OnChanged(function(Value)
-  Esp.Settings.ViewAngleColor = Value
+Esp.Settings.ViewAngleColor = Value
 end)
 Toggles.Armour:OnChanged(function(Value)
-  Esp.Settings.Armour = Value
+Esp.Settings.Armour = Value
 end)
 Options.ArmourColor:OnChanged(function(Value)
-  Esp.Settings.ArmourColor = Value
+Esp.Settings.ArmourColor = Value
 end)
 Toggles.Armour:OnChanged(function(Value)
-  Esp.Settings.Armour = Value
+Esp.Settings.Armour = Value
 end)
 Toggles.Distances:OnChanged(function(Value)
-  Esp.Settings.Distances = Value
+Esp.Settings.Distances = Value
 end)
 Options.DistancesColor:OnChanged(function(Value)
-  Esp.Settings.DistanceColor = Value
+Esp.Settings.DistanceColor = Value
 end)
 Options.BoxesColor:OnChanged(function(Value)
-  Esp.Settings.BoxesColor = Value
+Esp.Settings.BoxesColor = Value
 end)
 Options.BoxesOutlineColor:OnChanged(function(Value)
-  Esp.Settings.BoxesOutlineColor = Value
+Esp.Settings.BoxesOutlineColor = Value
 end)
 Toggles.Boxes:OnChanged(function(Value)
-  Esp.Settings.Boxes = Value
+Esp.Settings.Boxes = Value
 end)
 Options.SleepingColor:OnChanged(function(Value)
-  Esp.Settings.SleepingColor = Value
+Esp.Settings.SleepingColor = Value
 end)
 Toggles.Sleeping:OnChanged(function(Value)
-  Esp.Settings.Sleeping = Value
+Esp.Settings.Sleeping = Value
 end)
 PlayerSettingsVisualTab:AddSlider('RenderDistance', {Text='Render Distance',Default=1500,Min=1,Max=1500,Rounding=0,Compact=false,Suffix="s"}):OnChanged(function(Value)
-  Esp.Settings.RenderDistance = Value
+Esp.Settings.RenderDistance = Value
 end)
 PlayerSettingsVisualTab:AddToggle('TargetSleepers',{Text='Dont Show Sleepers',Default=true}):OnChanged(function(Value)
-  Esp.Settings.TargetSleepers = Value
+Esp.Settings.TargetSleepers = Value
 end)
 PlayerSettingsVisualTab:AddToggle('BoxesOutlines',{Text='Box Outlines',Default=true}):OnChanged(function(Value)
-  Esp.Settings.BoxesOutline = Value
+Esp.Settings.BoxesOutline = Value
 end)
 PlayerSettingsVisualTab:AddToggle('TeamCheck',{Text='Team Check',Default=true}):OnChanged(function(Value)
-  Esp.Settings.TeamCheck = Value
+Esp.Settings.TeamCheck = Value
 end)
 PlayerSettingsVisualTab:AddToggle('TextOutline',{Text='Text Outlines',Default=true}):OnChanged(function(Value)
-  Esp.Settings.TextOutline = Value
+Esp.Settings.TextOutline = Value
 end)
 PlayerSettingsVisualTab:AddToggle('Tool',{Text='Show Tool',Default=true}):OnChanged(function(Value)
-  Esp.Settings.TargetSleepers = Value
+Esp.Settings.TargetSleepers = Value
 end)
 
 --* velocity bar *--
@@ -427,7 +424,7 @@ WeaponModsTab:AddDropdown('FireTypeDropdown', {Values = {"Semi", "Auto"},Default
 if GunModsEnabled then
 local fireAction = FireActions[Value]
 for _, weapon in pairs(weapons) do
-  weapon.FireAction = fireAction
+weapon.FireAction = fireAction
 end
 end
 end)
@@ -460,20 +457,20 @@ OldSpinHook = hookfunction(game.Players.LocalPlayer:FindFirstChild("RemoteEvent"
 local args = {...}
 if args[1] and args[2] and args[1] == 1 and typeof(args[2]) == "Vector3" and args[4] and Spinbot == true then
 if SpinBotLM == true and SpinbotType == "Desync" then
-  args[4] = value
-  value = value + SpinbotSpeed
+args[4] = value
+value = value + SpinbotSpeed
 elseif SpinbotType == "Normal" or SpinBotLM == false then
-  args[4] = value
-  value = value - SpinbotSpeed
+args[4] = value
+value = value - SpinbotSpeed
 end
 end
 if args[1] and args[2] and args[1] == 1 and typeof(args[2]) == "Vector3" and args[4] and Spinbot == true then
 if SpinBotV == true and SpinbotType == "Desync" then
-  args[3] = 1.5000001192092896
+args[3] = 1.5000001192092896
 elseif SpinbotType == "Normal" or SpinBotV == false then
-  args[3] = -1.5000001192092896
+args[3] = -1.5000001192092896
 elseif SpinbotType == "Random" or SpinBotV == false then
-  args[3] = -1.5000001192092896
+args[3] = -1.5000001192092896
 end
 end
 return OldSpinHook(self, unpack(args))
@@ -481,14 +478,14 @@ end)
 task.spawn(function()
 while task.wait() do
 if SpinbotType == "Desync" then
-  SpinBotV = not SpinBotV
+SpinBotV = not SpinBotV
 end
 end
 end)
 task.spawn(function()
 while task.wait(0.1) do
 if SpinbotType == "Desync" or SpinbotType == "Random" then
-  SpinBotLM = not SpinBotLM
+SpinBotLM = not SpinBotLM
 end
 end
 end)
@@ -560,27 +557,27 @@ end)
 task.spawn(function()
 while task.wait() do
 if hbExpander.HeadExtends then
-  for _, i in ipairs(game:GetService("Workspace"):GetChildren()) do
-      if i:FindFirstChild("HumanoidRootPart") and not i:FindFirstChild("HedsOn") then
-          local BigHeadsPart = Instance.new("Part");BigHeadsPart.Name = "Torso";BigHeadsPart.Anchored = false;BigHeadsPart.CanCollide = false;BigHeadsPart.Transparency = hbExpander.HitboxTransparency;BigHeadsPart.Size = Vector3.new(hbExpander.XSize, hbExpander.YSize, hbExpander.ZSize);BigHeadsPart.Material=HBXMaterial;BigHeadsPart.Color = HBXColor
-          local DeletePart = Instance.new("Weld");DeletePart.Parent = BigHeadsPart;DeletePart.Name = "FAKEHEAD"
-          local HeadsParts = BigHeadsPart:Clone();HeadsParts.Parent = i;HeadsParts.Orientation = i.HumanoidRootPart.Orientation
-          local clonedHedsOn = HedsOn:Clone();clonedHedsOn.Parent = i
-          local Headswelding = Instance.new("Weld");Headswelding.Parent = HeadsParts;Headswelding.Part0 = i.HumanoidRootPart;Headswelding.Part1 = HeadsParts
-          HeadsParts.Position = Vector3.new(i.HumanoidRootPart.Position.X, i.HumanoidRootPart.Position.Y - 0.6, i.HumanoidRootPart.Position.Z)
-      end
-  end
+for _, i in ipairs(game:GetService("Workspace"):GetChildren()) do
+    if i:FindFirstChild("HumanoidRootPart") and not i:FindFirstChild("HedsOn") then
+        local BigHeadsPart = Instance.new("Part");BigHeadsPart.Name = "Torso";BigHeadsPart.Anchored = false;BigHeadsPart.CanCollide = false;BigHeadsPart.Transparency = hbExpander.HitboxTransparency;BigHeadsPart.Size = Vector3.new(hbExpander.XSize, hbExpander.YSize, hbExpander.ZSize);BigHeadsPart.Material=HBXMaterial;BigHeadsPart.Color = HBXColor
+        local DeletePart = Instance.new("Weld");DeletePart.Parent = BigHeadsPart;DeletePart.Name = "FAKEHEAD"
+        local HeadsParts = BigHeadsPart:Clone();HeadsParts.Parent = i;HeadsParts.Orientation = i.HumanoidRootPart.Orientation
+        local clonedHedsOn = HedsOn:Clone();clonedHedsOn.Parent = i
+        local Headswelding = Instance.new("Weld");Headswelding.Parent = HeadsParts;Headswelding.Part0 = i.HumanoidRootPart;Headswelding.Part1 = HeadsParts
+        HeadsParts.Position = Vector3.new(i.HumanoidRootPart.Position.X, i.HumanoidRootPart.Position.Y - 0.6, i.HumanoidRootPart.Position.Z)
+    end
+end
 else
-  for _, i in ipairs(game:GetService("Workspace"):GetChildren()) do
-      if i:FindFirstChild("HumanoidRootPart") and i:FindFirstChild("HedsOn") then
-          i.HedsOn:Remove()
-          for _, a in ipairs(i:GetChildren()) do
-              if a.Name == "Torso" and a:FindFirstChild("FAKEHEAD") and (not a:FindFirstChild("Nametag") or not a:FindFirstChild("Face")) then
-                  a:Remove()
-              end
-          end
-      end
-  end
+for _, i in ipairs(game:GetService("Workspace"):GetChildren()) do
+    if i:FindFirstChild("HumanoidRootPart") and i:FindFirstChild("HedsOn") then
+        i.HedsOn:Remove()
+        for _, a in ipairs(i:GetChildren()) do
+            if a.Name == "Torso" and a:FindFirstChild("FAKEHEAD") and (not a:FindFirstChild("Nametag") or not a:FindFirstChild("Face")) then
+                a:Remove()
+            end
+        end
+    end
+end
 end
 end
 end)
@@ -594,7 +591,7 @@ if getrenv()._G.modules.FPS.GetEquippedItem() == nil then return 0,0 end
 local mod = require(game:GetService("ReplicatedStorage").ItemConfigs[getrenv()._G.modules.FPS.GetEquippedItem().id])
 for i,v in pairs(mod) do
 if i == "HandModel" then
-  return mod.HandModel
+return mod.HandModel
 end
 end
 return 0,0
@@ -604,13 +601,13 @@ local function GetPlayer()
 local closest,PlayerDistance,playerTable = nil,math.huge,nil
 for i,v in pairs(getupvalues(getrenv()._G.modules.Player.GetPlayerModel)[1]) do
 if v.model:FindFirstChild("HumanoidRootPart") then
-  local Mouse = game.Players.LocalPlayer:GetMouse()
-  local pos,OnScreen = Camera.WorldToViewportPoint(Camera, v.model:GetPivot().Position)
-  local PlayerDistance = (CharcaterMiddle:GetPivot().Position-v.model:GetPivot().Position).Magnitude
-  Distance = (game.Workspace.Ignore.LocalCharacter.Middle.Position - v.model:GetPivot().Position).Magnitude
-  if PlayerDistance <= killauradistance and OnScreen == true then
-      closest = v.model;PlayerDistance = PlayerDistance;playerTable=v
-  end
+local Mouse = game.Players.LocalPlayer:GetMouse()
+local pos,OnScreen = Camera.WorldToViewportPoint(Camera, v.model:GetPivot().Position)
+local PlayerDistance = (CharcaterMiddle:GetPivot().Position-v.model:GetPivot().Position).Magnitude
+Distance = (game.Workspace.Ignore.LocalCharacter.Middle.Position - v.model:GetPivot().Position).Magnitude
+if PlayerDistance <= killauradistance and OnScreen == true then
+    closest = v.model;PlayerDistance = PlayerDistance;playerTable=v
+end
 end
 end
 return closest,playerTable
@@ -634,9 +631,9 @@ local state = Options.KillAuraKey:GetState()
 if state then
 local PlayerHumanoid,fr = GetPlayer()
 if PlayerHumanoid and AuraGoodToUse and PlayerHumanoid ~= nil and fr ~= nil then
-  game:GetService("Players").LocalPlayer.RemoteEvent:FireServer(10, "Swing")
-  game:GetService("Players").LocalPlayer.RemoteEvent:FireServer(10, "Hit", fr.id, PlayerHumanoid.HumanoidRootPart.Position, KAHitPartSelected, Vector3.new(-0.1275634765625, 0.5433349609375, -0.237548828125))
-  wait(Wait)
+game:GetService("Players").LocalPlayer.RemoteEvent:FireServer(10, "Swing")
+game:GetService("Players").LocalPlayer.RemoteEvent:FireServer(10, "Hit", fr.id, PlayerHumanoid.HumanoidRootPart.Position, KAHitPartSelected, Vector3.new(-0.1275634765625, 0.5433349609375, -0.237548828125))
+wait(Wait)
 end
 end
 end
@@ -720,9 +717,9 @@ while task.wait() do
 local state = Options.JumpCrouchKey:GetState()
 if not state then
 if stoprun then
-  keyrelease(0x57)
-  keyrelease(0x10)
-  stoprun = false
+keyrelease(0x57)
+keyrelease(0x10)
+stoprun = false
 end
 else
 stoprun = true
@@ -790,13 +787,13 @@ XRayEnabled = value
 if XRayEnabled then
 for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
 if v:FindFirstChild("Hitbox") then
-  v.Hitbox.Transparency = CurrentSliderValue
+v.Hitbox.Transparency = CurrentSliderValue
 end
 end
 else
 for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
 if v:FindFirstChild("Hitbox") then
-  v.Hitbox.Transparency = 0
+v.Hitbox.Transparency = 0
 end
 end
 end
@@ -910,28 +907,28 @@ if args[1] == 10 and args[2] == "Hit" and (args[6] == "Head" or args[6] == "Tors
 local bodyParts = { {part = "Head", probability = 10}, {part = "Torso", probability = 20}, {part = "HumanoidRootPart", probability = 5}, {part = "RightUpperArm", probability = 15}, {part = "RightLowerArm", probability = 10}, {part = "LeftUpperArm", probability = 15}, {part = "LeftLowerArm", probability = 10}, {part = "RightUpperLeg", probability = 5}, {part = "RightLowerLeg", probability = 5}, {part = "LeftUpperLeg", probability = 5}, {part = "LeftLowerLeg", probability = 5}, {part = "LeftFoot", probability = 5}, {part = "RightFoot", probability = 5} }
 local totalProbability = 0
 for _, bodyPartInfo in ipairs(bodyParts) do
-  totalProbability = totalProbability + bodyPartInfo.probability
+totalProbability = totalProbability + bodyPartInfo.probability
 end
 local randomNum = math.random(1, totalProbability)
 local selectedPart
 local accumulatedProbability = 0
 for _, bodyPartInfo in ipairs(bodyParts) do
-  accumulatedProbability = accumulatedProbability + bodyPartInfo.probability
-  if randomNum <= accumulatedProbability then
-      selectedPart = bodyPartInfo.part
-      break
-  end
+accumulatedProbability = accumulatedProbability + bodyPartInfo.probability
+if randomNum <= accumulatedProbability then
+    selectedPart = bodyPartInfo.part
+    break
+end
 end
 if math.random(0, 100) <= HBO2H then
-  if HBO2P == "Head" then
-      args[6] = "Head"
-  elseif HBO2P == "HumanoidRootPart" then
-      args[6] = "HumanoidRootPart"
-  elseif HBO2P == "Torso" then
-      args[6] = "Torso"
-  elseif HBO2P == "Random" then
-      args[6] = selectedPart
-  end
+if HBO2P == "Head" then
+    args[6] = "Head"
+elseif HBO2P == "HumanoidRootPart" then
+    args[6] = "HumanoidRootPart"
+elseif HBO2P == "Torso" then
+    args[6] = "Torso"
+elseif HBO2P == "Random" then
+    args[6] = selectedPart
+end
 end
 end
 return Bypass22(self, unpack(args))
@@ -944,28 +941,28 @@ if args[1] == 10 and args[2] == "Hit" and (args[6] == "Head" or args[6] == "Tors
 local bodyParts = { {part = "Head", probability = 10}, {part = "Torso", probability = 20}, {part = "HumanoidRootPart", probability = 5}, {part = "RightUpperArm", probability = 15}, {part = "RightLowerArm", probability = 10}, {part = "LeftUpperArm", probability = 15}, {part = "LeftLowerArm", probability = 10}, {part = "RightUpperLeg", probability = 5}, {part = "RightLowerLeg", probability = 5}, {part = "LeftUpperLeg", probability = 5}, {part = "LeftLowerLeg", probability = 5}, {part = "LeftFoot", probability = 5}, {part = "RightFoot", probability = 5} }
 local totalProbability = 0
 for _, bodyPartInfo in ipairs(bodyParts) do
-  totalProbability = totalProbability + bodyPartInfo.probability
+totalProbability = totalProbability + bodyPartInfo.probability
 end
 local randomNum = math.random(1, totalProbability)
 local selectedPart
 local accumulatedProbability = 0
 for _, bodyPartInfo in ipairs(bodyParts) do
-  accumulatedProbability = accumulatedProbability + bodyPartInfo.probability
-  if randomNum <= accumulatedProbability then
-      selectedPart = bodyPartInfo.part
-      break
-  end
+accumulatedProbability = accumulatedProbability + bodyPartInfo.probability
+if randomNum <= accumulatedProbability then
+    selectedPart = bodyPartInfo.part
+    break
+end
 end
 if math.random(0, 100) <= HBO2H then
-  if HBO2P == "Head" then
-      args[6] = "Head"
-  elseif HBO2P == "HumanoidRootPart" then
-      args[6] = "HumanoidRootPart"
-  elseif HBO2P == "Torso" then
-      args[6] = "Torso"
-  elseif HBO2P == "Random" then
-      args[6] = selectedPart
-  end
+if HBO2P == "Head" then
+    args[6] = "Head"
+elseif HBO2P == "HumanoidRootPart" then
+    args[6] = "HumanoidRootPart"
+elseif HBO2P == "Torso" then
+    args[6] = "Torso"
+elseif HBO2P == "Random" then
+    args[6] = selectedPart
+end
 end
 end
 return old(unpack(args))
@@ -1412,37 +1409,37 @@ task.spawn(function()
 local HitPos = Vector3.new(0,0,0)
 if args[8] then HitPos = args[8] else HitPos = args[3] end
 if type(HitPos) == "vector" then
-  local Vector, onScreen = Camera:WorldToViewportPoint(HitPos)
-  local Finished = false
-  local Line1 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X-12,Vector.Y -12),To=Vector2.new(Vector.X-7,Vector.Y-7),})
-  local Line2 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X+12,Vector.Y-12),To=Vector2.new(Vector.X+7,Vector.Y-7),})
-  local Line3 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X-12,Vector.Y+12),To=Vector2.new(Vector.X-7,Vector.Y+7),})
-  local Line4 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X+12,Vector.Y+12),To=Vector2.new(Vector.X+7,Vector.Y+7),})
-  local c; c = game:GetService("RunService").RenderStepped:Connect(function()
-  if hit.EnabledHitmarker then
-      if not Finished then
-          local Vector, onScreen = workspace.CurrentCamera:WorldToViewportPoint(HitPos)
-          Line1.Visible = onScreen;Line2.Visible = onScreen;Line3.Visible = onScreen;Line4.Visible = onScreen
-          Line1.From = Vector2.new(Vector.X - 12, Vector.Y - 12);Line1.To = Vector2.new(Vector.X - 7, Vector.Y - 7)
-          Line2.From = Vector2.new(Vector.X + 12, Vector.Y - 12);Line2.To = Vector2.new(Vector.X + 7, Vector.Y - 7)
-          Line3.From = Vector2.new(Vector.X - 12, Vector.Y + 12);Line3.To = Vector2.new(Vector.X - 7, Vector.Y + 7)
-          Line4.From = Vector2.new(Vector.X + 12, Vector.Y + 12);Line4.To = Vector2.new(Vector.X + 7, Vector.Y + 7)
-      else
-          c:Disconnect()
-      end
-  end
-  end)
-  local lines = {Line1, Line2, Line3, Line4}
-  local duration = hit.HitMarkerLifetime
-  local startTime = os.clock()
-  while os.clock() - startTime < duration do
-      local progress = (os.clock() - startTime) / duration
-      for _, line in ipairs(lines) do
-          line.Transparency = 1 - progress
-      end
-      wait()
-  end
-  Finished = true;Line1:Remove();Line2:Remove();Line3:Remove();Line4:Remove()
+local Vector, onScreen = Camera:WorldToViewportPoint(HitPos)
+local Finished = false
+local Line1 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X-12,Vector.Y -12),To=Vector2.new(Vector.X-7,Vector.Y-7),})
+local Line2 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X+12,Vector.Y-12),To=Vector2.new(Vector.X+7,Vector.Y-7),})
+local Line3 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X-12,Vector.Y+12),To=Vector2.new(Vector.X-7,Vector.Y+7),})
+local Line4 = Functions:Draw("Line",{Visible=onScreen,Thickness=1.5,Color=hit.HitMarkerColor,Transparency=1,From=Vector2.new(Vector.X+12,Vector.Y+12),To=Vector2.new(Vector.X+7,Vector.Y+7),})
+local c; c = game:GetService("RunService").RenderStepped:Connect(function()
+if hit.EnabledHitmarker then
+    if not Finished then
+        local Vector, onScreen = workspace.CurrentCamera:WorldToViewportPoint(HitPos)
+        Line1.Visible = onScreen;Line2.Visible = onScreen;Line3.Visible = onScreen;Line4.Visible = onScreen
+        Line1.From = Vector2.new(Vector.X - 12, Vector.Y - 12);Line1.To = Vector2.new(Vector.X - 7, Vector.Y - 7)
+        Line2.From = Vector2.new(Vector.X + 12, Vector.Y - 12);Line2.To = Vector2.new(Vector.X + 7, Vector.Y - 7)
+        Line3.From = Vector2.new(Vector.X - 12, Vector.Y + 12);Line3.To = Vector2.new(Vector.X - 7, Vector.Y + 7)
+        Line4.From = Vector2.new(Vector.X + 12, Vector.Y + 12);Line4.To = Vector2.new(Vector.X + 7, Vector.Y + 7)
+    else
+        c:Disconnect()
+    end
+end
+end)
+local lines = {Line1, Line2, Line3, Line4}
+local duration = hit.HitMarkerLifetime
+local startTime = os.clock()
+while os.clock() - startTime < duration do
+    local progress = (os.clock() - startTime) / duration
+    for _, line in ipairs(lines) do
+        line.Transparency = 1 - progress
+    end
+    wait()
+end
+Finished = true;Line1:Remove();Line2:Remove();Line3:Remove();Line4:Remove()
 end
 end)
 end
@@ -1453,59 +1450,59 @@ task.spawn(function()
 local HitPos = Vector3.new(0,0,0)
 if args[8] then HitPos = args[8] else HitPos = args[3] end
 if type(HitPos) == "vector" then
-  local Vector, onScreen = Camera:WorldToViewportPoint(HitPos)
-  local Finished = false
-  local Part = Instance.new("Part");Part.CanCollide = false;Part.Anchored = true;Part.Parent = workspace
-  local Attachment = Instance.new("Attachment")
-  Attachment.Position = CharcaterMiddle.Position;Attachment.Parent = Part;Attachment.Visible = false
-  local Attachment2 = Instance.new("Attachment");Attachment2.Position = HitPos;Attachment2.Parent = Part;Attachment2.Visible = false
-  local BulletLine = Instance.new("Beam")
-  BulletLine.Enabled = onScreen
-  BulletLine.Brightness = 10
-  BulletLine.LightInfluence = 0.75
-  BulletLine.LightEmission = 0.1
-  BulletLine.Attachment0 = Attachment
-  BulletLine.Attachment1 = Attachment2
-  BulletLine.TextureLength = 4
-  if TracerSelected == "Lightning Bolt" then
-      BulletLine.Texture = "rbxassetid://12781806168"
-  elseif TracerSelected == "Lightning Bolt2" then
-      BulletLine.Texture = "rbxassetid://7151778302"
-  elseif TracerSelected == "Laser" then
-      BulletLine.Texture = "rbxassetid://5864341017"
-  elseif TracerSelected == "Red Laser" then
-      BulletLine.Texture = "rbxassetid://6333823534"
-  elseif TracerSelected == "DNA" then
-      BulletLine.Texture = "rbxassetid://6511613786"
-  else
-      BulletLine.Texture = "rbxassetid://12781806168"
-  end
-  BulletLine.TextureSpeed = 2
-  BulletLine.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, hit.BulletTracerColor),ColorSequenceKeypoint.new(0.5, hit.BulletTracerColor),ColorSequenceKeypoint.new(1, hit.BulletTracerColor)}
-  BulletLine.Transparency = NumberSequence.new(0)
-  BulletLine.Parent = Part
-  BulletLine.CurveSize0 = 0
-  BulletLine.CurveSize1 = 0
-  BulletLine.FaceCamera = false
-  BulletLine.Segments = 10
-  BulletLine.Width0 = 1
-  BulletLine.Width1 = 1
-  BulletLine.ZOffset = 0
-  local c; c = game:GetService("RunService").RenderStepped:Connect(function()
-  if hit.EnabledBulletTracer then
-      if not Finished then
-          local Vector, onScreen = workspace.CurrentCamera:WorldToViewportPoint(HitPos)
-          BulletLine.Enabled = onScreen
-      else
-          c:Disconnect()
-      end
-  end
-  end)
-  if not Finished then
-      wait(hit.BulletTracerLifetime)
-      Finished = true
-      Part:Destroy()
-  end
+local Vector, onScreen = Camera:WorldToViewportPoint(HitPos)
+local Finished = false
+local Part = Instance.new("Part");Part.CanCollide = false;Part.Anchored = true;Part.Parent = workspace
+local Attachment = Instance.new("Attachment")
+Attachment.Position = CharcaterMiddle.Position;Attachment.Parent = Part;Attachment.Visible = false
+local Attachment2 = Instance.new("Attachment");Attachment2.Position = HitPos;Attachment2.Parent = Part;Attachment2.Visible = false
+local BulletLine = Instance.new("Beam")
+BulletLine.Enabled = onScreen
+BulletLine.Brightness = 10
+BulletLine.LightInfluence = 0.75
+BulletLine.LightEmission = 0.1
+BulletLine.Attachment0 = Attachment
+BulletLine.Attachment1 = Attachment2
+BulletLine.TextureLength = 4
+if TracerSelected == "Lightning Bolt" then
+    BulletLine.Texture = "rbxassetid://12781806168"
+elseif TracerSelected == "Lightning Bolt2" then
+    BulletLine.Texture = "rbxassetid://7151778302"
+elseif TracerSelected == "Laser" then
+    BulletLine.Texture = "rbxassetid://5864341017"
+elseif TracerSelected == "Red Laser" then
+    BulletLine.Texture = "rbxassetid://6333823534"
+elseif TracerSelected == "DNA" then
+    BulletLine.Texture = "rbxassetid://6511613786"
+else
+    BulletLine.Texture = "rbxassetid://12781806168"
+end
+BulletLine.TextureSpeed = 2
+BulletLine.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, hit.BulletTracerColor),ColorSequenceKeypoint.new(0.5, hit.BulletTracerColor),ColorSequenceKeypoint.new(1, hit.BulletTracerColor)}
+BulletLine.Transparency = NumberSequence.new(0)
+BulletLine.Parent = Part
+BulletLine.CurveSize0 = 0
+BulletLine.CurveSize1 = 0
+BulletLine.FaceCamera = false
+BulletLine.Segments = 10
+BulletLine.Width0 = 1
+BulletLine.Width1 = 1
+BulletLine.ZOffset = 0
+local c; c = game:GetService("RunService").RenderStepped:Connect(function()
+if hit.EnabledBulletTracer then
+    if not Finished then
+        local Vector, onScreen = workspace.CurrentCamera:WorldToViewportPoint(HitPos)
+        BulletLine.Enabled = onScreen
+    else
+        c:Disconnect()
+    end
+end
+end)
+if not Finished then
+    wait(hit.BulletTracerLifetime)
+    Finished = true
+    Part:Destroy()
+end
 end
 end)
 end
@@ -1535,6 +1532,7 @@ end)
 HitTab:AddSlider('HitMarkerLifetime', {Text = 'lifetime:',Suffix = "s",Default = hit.HitMarkerLifetime, Min = 2, Max = 5, Rounding = 1, Compact = false}):OnChanged(function(Value)
 hit.HitMarkerLifetime = Value
 end)
+
 
 --* Lighting *--
 
@@ -1728,14 +1726,14 @@ end
 function Functions:ArmChams()
 if Misc2.Settings.LocalChams == true then
 for i,v in pairs(game:GetService("Workspace").Ignore.FPSArms:GetChildren()) do
-  if v.ClassName == "MeshPart" then
-    v.Color=Misc2.Settings.LocalChamsColor
-    v.Material=Enum.Material[Misc2.Settings.LocalChamsMaterial]
-  end
+if v.ClassName == "MeshPart" then
+  v.Color=Misc2.Settings.LocalChamsColor
+  v.Material=Enum.Material[Misc2.Settings.LocalChamsMaterial]
+end
 end
 else
 for i,v in pairs(DeafultArm) do
-  i.Color=v.Color;i.Material=v.Material
+i.Color=v.Color;i.Material=v.Material
 end
 end
 end
@@ -1743,12 +1741,12 @@ for i,v in pairs(game:GetService("Workspace").Ignore.FPSArms:GetChildren()) do
 v.Changed:Connect(function(Change)
 if Change ~= "CFrame" then
 if Misc2.Settings.LocalChams == true then
-  v.Color=Misc2.Settings.LocalChamsColor
-  v.Material=Enum.Material[Misc2.Settings.LocalChamsMaterial]
+v.Color=Misc2.Settings.LocalChamsColor
+v.Material=Enum.Material[Misc2.Settings.LocalChamsMaterial]
 else
-  for i,v in pairs(DeafultArm) do
-    i.Color=v.Color;i.Material=v.Material
-  end
+for i,v in pairs(DeafultArm) do
+  i.Color=v.Color;i.Material=v.Material
+end
 end
 end
 end)
@@ -1787,29 +1785,29 @@ local FrameTimer = tick()
 local FrameCounter = 0;
 local FPS = 60;
 local WatermarkConnection = game:GetService('RunService').RenderStepped:Connect(function()
-  FrameCounter += 1;
+FrameCounter += 1;
 
-  if (tick() - FrameTimer) >= 1 then
-      FPS = FrameCounter;
-      FrameTimer = tick();
-      FrameCounter = 0;
-  end;
+if (tick() - FrameTimer) >= 1 then
+    FPS = FrameCounter;
+    FrameTimer = tick();
+    FrameCounter = 0;
+end;
 
-  Library:SetWatermark(('Shibahub | Build: Private | %s fps | %s ms'):format(
-      math.floor(FPS),
-      math.floor(game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue())
-  ));
+Library:SetWatermark(('Shibahub | Build: Private | %s fps | %s ms'):format(
+    math.floor(FPS),
+    math.floor(game:GetService('Stats').Network.ServerStatsItem['Data Ping']:GetValue())
+));
 end);
 
 Library.KeybindFrame.Visible = true;
 
 Library:OnUnload(function()
-  WatermarkConnection:Disconnect()
-  for i,v in pairs(Toggles) do
-      v:SetValue(false)
-  end
-  PlayerConnection:Disconnect()
-  Library.Unloaded = true
+WatermarkConnection:Disconnect()
+for i,v in pairs(Toggles) do
+    v:SetValue(false)
+end
+PlayerConnection:Disconnect()
+Library.Unloaded = true
 end)
 
 local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
@@ -1840,63 +1838,13 @@ notifyPlayerChange(player, "left", Color3.fromRGB(255, 0, 0))
 end)
 
 local whitelist = {
-    private = {
-        { clientID = "7816D3A9-7569-4804-B902-BD9C0ECB3B9B", priority = 1 }
-    },
-    developer = {
-        { clientID = "506F0224-9329-44F6-BF07-665BD7BD0B46", priority = 2 }
-    },
-	blacklist = {
-		{ clientID = "", priority = 0 }
-	}
+  private = {
+      { clientID = "7816D3A9-7569-4804-B902-BD9C0ECB3B9B", priority = 1 }
+  },
+  developer = {
+      { clientID = "506F0224-9329-44F6-BF07-665BD7BD0B46", priority = 2 }
+  },
+blacklist = {
+  { clientID = "", priority = 0 }
 }
-
-local function getClientWhitelistInfo(clientID, whitelistType)
-    local list = whitelist[whitelistType]
-    if not list then
-        return nil
-    end
-
-    for _, entry in ipairs(list) do
-        if entry.clientID == clientID then
-            return entry.priority
-        end
-    end
-    return nil
-end
-
-local function hasPriority(clientID, priority)
-    for _, list in pairs(whitelist) do
-        for _, entry in ipairs(list) do
-            if entry.clientID == clientID and entry.priority >= priority then
-                return true
-            end
-        end
-    end
-    return false
-end
-
-local clientID = game:GetService("RbxAnalyticsService"):GetClientId()
-
-local whitelistType
-local priority
-for listType, _ in pairs(whitelist) do
-    priority = getClientWhitelistInfo(clientID, listType)
-    if priority then
-        whitelistType = listType
-        break
-    end
-end
-
-local chatTag
-local chatTagColor
-if whitelistType == "private" then
-    local user = game.Players.LocalPlayer
-    print("[*]: System Alert: Welcome To Shibahub - [Build: Private]\n")
-elseif whitelistType == "developer" then
-    local user = game.Players.LocalPlayer
-    print("[*]: System Alert: Welcome To Shibahub - [Build: Developer]\n")
-elseif whitelistType == "blacklist" then 
-	local user = game.Players.LocalPlayer 
-	game.Players.LocalPlayer:Kick("Blacklisted")
-end
+}
